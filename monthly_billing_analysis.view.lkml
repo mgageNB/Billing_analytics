@@ -2,7 +2,7 @@ view: monthly_billing_analysis {
   sql_table_name: ANALYTICS.MONTHLY_BILLING_ANALYSIS ;;
 
   dimension: billable {
-    type: string
+    type: number
     sql: ${TABLE}.BILLABLE ;;
   }
 
@@ -77,12 +77,12 @@ view: monthly_billing_analysis {
   }
 
   dimension: success {
-    type: string
+    type: number
     sql: ${TABLE}.SUCCESS ;;
   }
 
   dimension: total {
-    type: string
+    type: number
     sql: ${TABLE}.TOTAL ;;
   }
 
