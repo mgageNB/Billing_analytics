@@ -27,9 +27,9 @@ view: mgage_us_billing_consolidated_view {
             ,CUSTOMER_NAME
             ,ORGANIZATION_ID CUSTOMER_ID
             ,CAMPAIGN_NAME
-            ,IS_INTERNATIONAL
+            ,IS_INTERNATIONAL ISINTERNATIONAL
             ,CARRIER_NAME CARRIER
-            ,SHORT_CODE
+            ,SHORT_CODE SHORTCODE
             ,MESSAGE_DIRECTION DIRECTION
             ,DELIVERY_PROTOCOL_TYPE DELIVERY_PROTOCOL
             ,TOTAL
@@ -51,9 +51,9 @@ view: mgage_us_billing_consolidated_view {
     sql: ${TABLE}.CAMPAIGN_NAME ;;
   }
 
-  dimension: carrier_name {
+  dimension: carrier {
     type: string
-    sql: ${TABLE}.CARRIER_NAME ;;
+    sql: ${TABLE}.CARRIER ;;
   }
 
   dimension: country {
@@ -71,9 +71,9 @@ view: mgage_us_billing_consolidated_view {
     sql: ${TABLE}.CUSTOMER_NAME ;;
   }
 
-  dimension: delivery_protocol_type {
+  dimension: delivery_protocol {
     type: string
-    sql: ${TABLE}.DELIVERY_PROTOCOL_TYPE ;;
+    sql: ${TABLE}.DELIVERY_PROTOCOL ;;
   }
 
   dimension: gateway {
@@ -81,29 +81,29 @@ view: mgage_us_billing_consolidated_view {
     sql: ${TABLE}.GATEWAY ;;
   }
 
-  dimension: is_international {
+  dimension: ISINTERNATIONAL {
     type: string
-    sql: ${TABLE}.IS_INTERNATIONAL ;;
+    sql: ${TABLE}.ISINTERNATIONAL ;;
   }
 
-  dimension: message_direction {
+  dimension: DIRECTION {
     type: string
-    sql: ${TABLE}.MESSAGE_DIRECTION ;;
+    sql: ${TABLE}.DIRECTION ;;
   }
 
-  dimension: organization_id {
+  dimension: CUSTOMER_ID {
     type: string
-    sql: ${TABLE}.ORGANIZATION_ID ;;
+    sql: ${TABLE}.CUSTOMER_ID ;;
   }
 
-  dimension: parent_customer_id {
+  dimension: PARENT_ID {
     type: string
-    sql: ${TABLE}.PARENT_CUSTOMER_ID ;;
+    sql: ${TABLE}.PARENT_ID ;;
   }
 
-  dimension: parent_customer_name {
+  dimension: parent_name {
     type: string
-    sql: ${TABLE}.PARENT_CUSTOMER_NAME ;;
+    sql: ${TABLE}.PARENT_NAME ;;
   }
 
   dimension: period {
@@ -111,9 +111,9 @@ view: mgage_us_billing_consolidated_view {
     sql: ${TABLE}.PERIOD ;;
   }
 
-  dimension: short_code {
+  dimension: SHORTCODE {
     type: string
-    sql: ${TABLE}.SHORT_CODE ;;
+    sql: ${TABLE}.SHORTCODE ;;
   }
 
   measure: success {
