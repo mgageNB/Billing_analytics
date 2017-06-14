@@ -8,7 +8,8 @@ view: mgage_us_billing_consolidated_view {
             , CUSTOMER_NAME
             , CUSTOMER_ID
             , CAMPAIGN_NAME
-            , ISINTERNATIONAL
+            , CASE WHEN ISINTERNATIONAL = 1 THEN 'Yes' ELSE
+                    CASE WHEN ISINTERNATIONAL = 0 Then 'No' ELSE ISINTERNATIONAL END END ISINTERNATIONAL
             , CARRIER
             , SHORTCODE
             , DIRECTION
@@ -27,7 +28,8 @@ view: mgage_us_billing_consolidated_view {
             ,CUSTOMER_NAME
             ,ORGANIZATION_ID CUSTOMER_ID
             ,CAMPAIGN_NAME
-            ,IS_INTERNATIONAL ISINTERNATIONAL
+            , CASE WHEN IS_INTERNATIONAL = 1 THEN 'Yes' ELSE
+                    CASE WHEN IS_INTERNATIONAL = 0 Then 'No' ELSE IS_INTERNATIONAL END END ISINTERNATIONAL
             ,CARRIER_NAME CARRIER
             ,SHORT_CODE SHORTCODE
             ,MESSAGE_DIRECTION DIRECTION
@@ -39,6 +41,8 @@ view: mgage_us_billing_consolidated_view {
             ,COUNTRY
             ,PARENT_CUSTOMER_NAME PARENT_NAME
       FROM BILLING.BOSTON.BOSTON_BILLING_VIEW;;
+
+      persist_for: "3 hour"
   }
 
   measure: billable {
